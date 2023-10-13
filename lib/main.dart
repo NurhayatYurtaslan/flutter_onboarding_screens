@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:onboarding_screens/view/first_page_view.dart';
+import 'package:onboarding_screens/view/main_page_view.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FirstView(),
+      home: MainView(),
     );
   }
 }
