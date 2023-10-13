@@ -17,6 +17,12 @@ class FirstView extends StatelessWidget {
             width: double.infinity,
             decoration: const BoxDecoration(
               color: primaryColor,
+              gradient: RadialGradient(colors: [
+        tertiaryColor,
+        buttonColor,
+        primaryColor
+        
+      ],center: Alignment.center, radius: 0.7),
             ),
             child: Column(
               children: [
