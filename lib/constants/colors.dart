@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-const Color primaryColor = Color.fromARGB(255, 88, 21, 144);
-const Color secondaryColor = Color(
-  0xFF674AFF,
-);
+const Color primaryColor = Color.fromARGB(255, 94, 65, 178);
+const Color buttonColor = Color.fromARGB(255, 69, 41, 160);
 const Color tertiaryColor = Color(0xFFf4f4f4);
 const Color textColor = Color(0xFF333333);
 const Color labelColor = Color(0xFF8A8989);
