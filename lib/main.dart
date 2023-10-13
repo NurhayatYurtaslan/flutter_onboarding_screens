@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding_screens/view/first.dart';
+import 'package:flutter/services.dart';
+import 'package:onboarding_screens/view/first_page_view.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+      // statusBar kaldırmak için
+      const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(const MyApp());
 }
 
@@ -12,7 +16,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: OnboardingView(),
+      debugShowCheckedModeBanner: false,
+      home: FirstView(),
     );
   }
 }

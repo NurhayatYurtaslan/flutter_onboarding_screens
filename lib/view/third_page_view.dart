@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding_screens/constants/colors.dart';
-import 'package:onboarding_screens/constants/image.dart';
+import 'package:onboarding_screens/constants/colors_constants.dart';
+import 'package:onboarding_screens/constants/image_constants.dart';
 
-class OnboardingView extends StatelessWidget {
-  const OnboardingView({super.key});
+class ThirdView extends StatelessWidget {
+  const ThirdView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,19 +12,16 @@ class OnboardingView extends StatelessWidget {
       child: Column(
         children: [
           Expanded(
-              
               child: Container(
-
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: primaryColor,
                 ),
-                
                 child: Column(
                   children: [
                     Container(),
                     Expanded(
-                      child: Image.asset(walletImage),
+                      child: Image.asset(walletImage3),
                     )
                   ],
                 ),
@@ -49,7 +46,7 @@ class OnboardingView extends StatelessWidget {
                           const Spacer(),
                           const SizedBox(width: double.infinity,
                             child: Text(
-                              "Send crypto instantly \nto your wallet",
+                              "Make transactions \nsecurely",
                               style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
@@ -59,7 +56,7 @@ class OnboardingView extends StatelessWidget {
                           const Spacer(),
                           const SizedBox(width: double.infinity,
                             child: Text(
-                              "Save your cyrptocurrency instantly to yout wallet!",
+                              "Secure way of sending and receving cryptocurrency",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 color: Colors.black54,
@@ -94,48 +91,20 @@ class OnboardingView extends StatelessWidget {
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Icon(
-                                    Icons.chevron_right_rounded,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
+                                  
                                 ],
                               ),
                             ),
                           ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.85,
-                            height: 48,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                    side: const BorderSide(color: primaryColor)),
-                              ),
-                              onPressed: () {},
-                              child: const Row(
-                                mainAxisAlignment: MainAxisAlignment
-                                    .center, //yatay bir düzelemde kendinden sonra gelen children ı aldığı değere göre hizalar
-                                children: [
-                                  Text(
-                                    "Skip",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                      color: buttonColor,
-                                    ),
+                          // 
+                          TextButton(onPressed: (){}, child: const Text(
+                                  "Skip",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 19,
+                                    color: primaryColor,
                                   ),
-                                ],
-                              ),
-                            ),
-                          ),
+                                ))
                         ],
                       ),
                     ),

@@ -1,1 +1,0 @@
-const String walletImage = 'assets/wallet.png';
