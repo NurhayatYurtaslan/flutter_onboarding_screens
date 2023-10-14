@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:onboarding_screens/view/main_page_view.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(

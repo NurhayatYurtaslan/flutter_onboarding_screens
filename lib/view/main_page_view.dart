@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:onboarding_screens/constants/colors_constants.dart';
 import 'package:onboarding_screens/constants/image_constants.dart';
@@ -33,10 +32,20 @@ class MainView extends StatelessWidget {
                         center: Alignment.center,
                         radius: 0.7),
                   ),
-                  child: Column(
+                  child: Stack(
                     children: [
-                      Container(),
+                      //Diger sayfadaki gorseller buradan cagiriliyor. State degisiyor
                       bodyWidget(state),
+                      //Geri tusu
+                      IconButton(
+                        padding: EdgeInsets.all(15),
+                        icon: Icon(Icons.navigate_before),
+                        onPressed: () {
+                          context
+                              .read<OnboardingCubit>()
+                              .currentPage(state.currentIndex - 1);
+                        },
+                      ),
                     ],
                   ),
                 )),
@@ -84,49 +93,78 @@ class MainView extends StatelessWidget {
                                   ),
                                 ),
                                 const Spacer(),
-                                SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.85,
-                                  height: 48,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: buttonColor,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                    ),
-                                    onPressed: () {
-                                      context.read<OnboardingCubit>().currentPage(1);
-                                    },
-                                    child: const Row(
-                                      mainAxisAlignment: MainAxisAlignment
-                                          .center, //yatay bir düzelemde kendinden sonra gelen children ı aldığı değere göre hizalar
-                                      children: [
-                                        Text(
-                                          "Next",
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                            color: Colors.white,
+                                Expanded(
+                                  flex: 2,
+                                  child: Column(
+                                    children: [
+                                      ElevatedButton(
+                                        
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: buttonColor,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
                                           ),
                                         ),
-                                      ],
-                                    ),
+                                        onPressed: () {
+                                          context
+                                              .read<OnboardingCubit>()
+                                              .currentPage(
+                                                  state.currentIndex + 1);
+                                        },
+                                        child: const Row(
+                                          mainAxisAlignment: MainAxisAlignment
+                                              .center, //yatay bir düzelemde kendinden sonra gelen children ı aldığı değere göre hizalar
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 10, bottom: 10),
+                                              child: Text(
+                                                "Next",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(height: 10),
+                                      ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: tertiaryColor,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          context
+                                              .read<OnboardingCubit>()
+                                              .currentPage(2);
+                                        },
+                                        child: const Row(
+                                          mainAxisAlignment: MainAxisAlignment
+                                              .center, //yatay bir düzelemde kendinden sonra gelen children ı aldığı değere göre hizalar
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(top: 10, bottom: 10),
+                                              child: Text(
+                                                "Skip",
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 19,
+                                                  color: primaryColor,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                //
-                                TextButton(
-                                    onPressed: () {
-                                      context.read<OnboardingCubit>().currentPage(1);
-                                    },
-                                    child: const Text(
-                                      "Skip",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 19,
-                                        color: primaryColor,
-                                      ),
-                                    ))
                               ],
                             ),
                           ),
